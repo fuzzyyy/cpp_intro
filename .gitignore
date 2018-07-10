@@ -1,0 +1,10 @@
+# ignore all
+*
+
+# unignore files with extensions
+!*.*
+
+# unignore directories
+!*/
+
+####### result = ignore binary files without extension
