@@ -5,43 +5,48 @@ int main()
 {
     const unsigned int squareA = 4;
     const unsigned int rectangleA = 5;
-    const unsigned int rectangleB = 2;
-    const int triangleA = 9;
+    const unsigned int rectangleB = 10;
+    const unsigned int triangleA = 9;
 
     for (int i = 0; i < squareA; ++i)
     {
-        for (int j = 0; j < squareA; ++j)
-        {
-            std::cout << '*';
+        if (i == 0 || i == squareA - 1){
+            std::string tmp(squareA, '*');
+            std::cout << tmp;
+        }
+        else{
+            std::string tmp(squareA-2, ' ');
+            std::cout << '*' << tmp << '*';
         }
         std::cout << std::endl;
     }
-
     std::cout << std::endl;
+
 
     for (int i = 0; i < rectangleA; ++i)
     {
-        for (int j = 0; j < rectangleB; ++j)
-        {
-            std::cout << '*';
+        if (i == 0 || i == rectangleA - 1){
+            std::string tmp(rectangleB, '*');
+            std::cout << tmp;
+        }
+        else{
+            std::string tmp(rectangleB - 2, ' ');
+            std::cout << '*' << tmp << '*';
         }
         std::cout << std::endl;
     }
 
-    for (int i = 0; i < (triangleA+1)/2; ++i)
+    for (int i = triangleA - 1; i > 0; i--)
     {
-        for (int j = 0; j < triangleA; ++j)
-        {
-            if (abs(j - triangleA/2) <= i){
-                std::cout << '*';
-            }
-            else {
-                std::cout << ' ';
-            }
-        }
-        std::cout << std::endl;
+        std::string pad(i, ' ');
+        std::string innerPad(2*(triangleA - 1 -i), ' ');
+        std::cout << pad << '*' << innerPad << '*' << std::endl;
     }
-    
+    {
+        std::string tmp(2*triangleA, '*');
+        std::cout << tmp << std::endl;
+    }
+
     return 0;
 }
 
