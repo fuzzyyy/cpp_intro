@@ -7,4 +7,5 @@
 # unignore directories
 !*/
 
+!Makefile
 ####### result = ignore binary files without extension
