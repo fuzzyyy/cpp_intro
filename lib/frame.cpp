@@ -81,3 +81,20 @@ vector<string> hcat(const vector<string>& left, const vector<string>& right)
 
     return ret;
 }
+
+std::vector<std::string> center(const std::vector<std::string>& vec)
+{
+    string::size_type maxLenght = max_width(vec);
+
+    vector<string> ret;
+
+    string::size_type leftPadding = 0;
+    for (vector<string>::const_iterator iter = vec.begin(); iter != vec.end(); ++iter)
+    {
+        leftPadding = (maxLenght - iter->size())/2;
+        ret.push_back("*" + string(leftPadding, ' ') + (*iter)
+                      + string(maxLenght - iter->size() - leftPadding, ' ') + "*"); 
+    }
+
+    return ret;
+}

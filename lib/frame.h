@@ -14,4 +14,6 @@ std::vector<std::string> vcat2(const std::vector<std::string>& top,
 std::vector<std::string> hcat(const std::vector<std::string>& left,
                               const std::vector<std::string>& right);
 
+std::vector<std::string> center(const std::vector<std::string>&);
+
 #endif
