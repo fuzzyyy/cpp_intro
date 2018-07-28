@@ -30,9 +30,9 @@ int main()
     cout << "after extraction:" << endl;
     vector<Student_info> idiots;
     // list<Student_info> idiots;
-    // idiots = extract_fails(students);    // indices
-    idiots = extract_fails2(students);      // iterators
-    // idiots = extract_fails3(students);   // list version
+    // idiots = extract_fails_slow(students);    // indices
+    idiots = extract_fails(students);      // iterators
+    // idiots = extract_fails(students);   // list version
 
 
     cout << "passed:" << endl;

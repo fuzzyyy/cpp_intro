@@ -8,7 +8,7 @@
 using std::vector;
 using std::list;
 
-vector<Student_info> extract_fails(vector<Student_info>& students)
+vector<Student_info> extract_fails_slow(vector<Student_info>& students)
 {
     vector<Student_info> ret;
 
@@ -27,7 +27,7 @@ vector<Student_info> extract_fails(vector<Student_info>& students)
     return ret;
 }
 
-vector<Student_info> extract_fails2(vector<Student_info>& students)
+vector<Student_info> extract_fails(vector<Student_info>& students)
 {
     vector<Student_info> ret;
     vector<Student_info>::iterator iter = students.begin();
@@ -45,7 +45,7 @@ vector<Student_info> extract_fails2(vector<Student_info>& students)
     return ret;   
 }
 
-list<Student_info> extract_fails3(list<Student_info>& students)
+list<Student_info> extract_fails(list<Student_info>& students)
 {
     list<Student_info> ret;
     list<Student_info>::iterator iter = students.begin();
