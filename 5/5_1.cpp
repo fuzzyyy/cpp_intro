@@ -21,7 +21,7 @@ struct row{
     string str;
     string left;
     string right;
-    string::size_type perm;
+    vector<string>::size_type perm;
 };
 
 vector<string> split(const string&);
