@@ -10,4 +10,8 @@ double grade(const Student_info&);
 
 bool fgrade(const Student_info&);
 
+double average_grade(const Student_info&);
+
+double optimistic_median_grade(const Student_info&);
+
 #endif
