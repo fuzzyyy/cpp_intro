@@ -63,7 +63,7 @@ vector<string> hcat(const vector<string>& left, const vector<string>& right)
     {
         string tmp;
         if (i != left.end()){
-            tmp += (*i) + string(maxLenght - i->size() + 1, ' ');
+            tmp = (*i);
             i++;
         }
         // else {
