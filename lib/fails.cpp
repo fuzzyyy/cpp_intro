@@ -1,10 +1,14 @@
+#include <algorithm>
+#include <iterator>
 #include <list>
 #include <vector>
 
 #include "fails.h"
 #include "grade.h"
 
-
+using std::remove_copy_if;
+using std::stable_partition;
+using std::back_inserter;
 using std::vector;
 using std::list;
 
@@ -105,4 +109,23 @@ vector<Student_info> extract_fails_resize(vector<Student_info>& students)
     students.resize(successCount);
 
     return ret;
+}
+
+vector<Student_info> extract_fails_2pass(vector<Student_info>& students)
+{
+    vector<Student_info> fail;
+    remove_copy_if(students.begin(), students.end(), back_inserter(fail), pgrade);
+    students.erase(remove_if(students.begin(), students.end(), fgrade), students.end());
+
+    return fail;
+}
+
+vector<Student_info> extract_fails_1pass(vector<Student_info>& students)
+{
+    vector<Student_info>::iterator iter = stable_partition(
+                    students.begin(), students.end(), pgrade);
+    vector<Student_info> fail(iter, students.end());
+    students.erase(iter, students.end());
+
+    return fail;
 }

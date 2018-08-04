@@ -33,6 +33,11 @@ bool fgrade(const Student_info& s)
     return grade(s) < 60;
 }
 
+bool pgrade(const Student_info& s)
+{
+    return !fgrade(s);
+}
+
 double average_grade(const Student_info& s)
 {
     return grade(s.midterm, s.final, average(s.homework));
