@@ -10,6 +10,7 @@
 using std::remove_copy;
 using std::back_inserter;
 using std::vector;
+using std::domain_error;
 
 double grade(double midterm, double final, double homework)
 {
@@ -26,6 +27,16 @@ double grade(double midterm, double final, const vector<double>& hw)
 double grade(const Student_info& s)
 {
 	return grade(s.midterm, s.final, s.homework);
+}
+
+double grade_aux(const Student_info& s)
+{
+    try {
+        return grade(s);
+    }
+    catch (domain_error) {
+        return grade(s.midterm, s.final, 0);
+    }
 }
 
 bool fgrade(const Student_info& s)

@@ -35,14 +35,14 @@ void write_analysis(ostream& out,
                 << ", median(didnt) = " << analysis(didnt) << "\n";
 }
 
-double grade_aux(const Student_info& s)
+void write_analysis(ostream& out,
+                    const string& name,
+                    double grade_f(const Student_info&),
+                    const vector<Student_info>& did,
+                    const vector<Student_info>& didnt)
 {
-    try {
-        return grade(s);
-    }
-    catch (domain_error) {
-        return grade(s.midterm, s.final, 0);
-    }
+    out << name << ": median(did) = " << analysis(did, grade_f)
+                << ", median(didnt) = " << analysis(didnt, grade_f) << "\n";
 }
 
 double median_analysis(const vector<Student_info>& vec)
@@ -66,5 +66,13 @@ double optimistic_median_analysis(const vector<Student_info>& vec)
     vector<double> grades;
 
     transform(vec.begin(), vec.end(), back_inserter(grades), optimistic_median_grade);
+    return median(grades);
+}
+
+double analysis(const vector<Student_info>& vec,
+                double grade_func(const Student_info&))
+{
+    vector<double> grades;
+    transform(vec.begin(), vec.end(), back_inserter(grades), grade_func);
     return median(grades);
 }
