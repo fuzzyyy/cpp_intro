@@ -16,6 +16,12 @@ LIBOBJ = $(LIB)/obj
 				  $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
 	g++ $^ -o $@
 
+6_3: $(OBJ)/6_3.o
+	g++ $^ -o $@
+
+6_4: $(OBJ)/6_4.o
+	g++ $^ -o $@
+
 #$(OBJ)/6_0_strings.o: 6_0_strings.cpp
 #	g++ -c $(INCLUDE) $(CXXFLAGS) $^ -o $@
 
