@@ -22,9 +22,14 @@ LIBOBJ = $(LIB)/obj
 6_4: $(OBJ)/6_4.o
 	g++ $^ -o $@
 
-6_6: $(OBJ)/6_0_grading.o $(LIBOBJ)/compare_schemes.o $(LIBOBJ)/Student_info.o \
+6_6: $(OBJ)/6_6.o $(LIBOBJ)/compare_schemes.o $(LIBOBJ)/Student_info.o \
 	 $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
 	g++ $^ -o $@
+
+6_7: $(OBJ)/6_7.o $(LIBOBJ)/compare_schemes.o $(LIBOBJ)/Student_info.o \
+	 $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
+	g++ $^ -o $@
+
 
 #$(OBJ)/6_0_strings.o: 6_0_strings.cpp
 #	g++ -c $(INCLUDE) $(CXXFLAGS) $^ -o $@

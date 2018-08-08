@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <vector>
@@ -9,6 +10,7 @@ using std::list;
 using std::vector;
 using std::cout;
 using std::endl;
+using std::stable_partition;
 
 bool compare(const Student_info& x, const Student_info& y)
 {
@@ -58,11 +60,22 @@ void print_students(const vector<Student_info>& vec)
     }
 }
 
-void print_students(const list<Student_info>& studs)
+void print_students(const list<Student_info>& students)
 {
-    for (list<Student_info>::const_iterator iter = studs.begin();
-         iter != studs.end(); ++iter)
+    for (list<Student_info>::const_iterator iter = students.begin();
+         iter != students.end(); ++iter)
     {
         print_student(*iter);
     }
+}
+
+vector<Student_info> extract_students(vector<Student_info>& students,
+                                    bool criterion(const Student_info&))
+{
+    vector<Student_info>::iterator iter =
+            stable_partition(students.begin(), students.end(), criterion);
+    vector<Student_info> ret(iter, students.end());
+    students.erase(iter, students.end());
+
+    return ret;
 }
