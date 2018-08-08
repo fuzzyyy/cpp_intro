@@ -34,6 +34,9 @@ LIBOBJ = $(LIB)/obj
 				  $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
 	g++ $^ -o $@
 
+6_9: $(OBJ)/6_9.o $(LIBOBJ)/strvect_utils.o
+	g++ $^ -o $@
+
 
 #$(OBJ)/6_0_strings.o: 6_0_strings.cpp
 #	g++ -c $(INCLUDE) $(CXXFLAGS) $^ -o $@
