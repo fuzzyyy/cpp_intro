@@ -30,6 +30,10 @@ LIBOBJ = $(LIB)/obj
 	 $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
 	g++ $^ -o $@
 
+6_8: $(OBJ)/6_8.o $(LIBOBJ)/Student_info.o  $(LIBOBJ)/fails.o \
+				  $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
+	g++ $^ -o $@
+
 
 #$(OBJ)/6_0_strings.o: 6_0_strings.cpp
 #	g++ -c $(INCLUDE) $(CXXFLAGS) $^ -o $@
