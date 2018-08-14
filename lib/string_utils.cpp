@@ -121,3 +121,8 @@ string::const_iterator url_beg(string::const_iterator begin,
 
     return end;
 }
+
+bool bracketed(const string& s)
+{
+    return s.size() > 1 && s[0] == '<' && s[s.size() - 1] == '>';
+}
