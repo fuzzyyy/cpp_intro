@@ -24,6 +24,9 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 	$(LIBOBJ)/Student_info.o
 	g++ $^ -o $@
 
+7_3: $(OBJ)/7_3.o $(LIBOBJ)/xref.o $(LIBOBJ)/string_utils.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 
@@ -35,5 +38,9 @@ clean:
 	rm -f $(LIBOBJ)/*
 	rm -f 7_0_words
 	rm -f 7_0_xref
+	rm -f 7_0_grammar
+	rm -f 7_1
+	rm -f 7_2
+	rm -f 7_3
 
 .PHONY: clean

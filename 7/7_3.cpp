@@ -13,7 +13,7 @@ using std::vector;
 
 int main()
 {
-    map<string, vector<int> > xrefs = xref_old(cin);
+    map<string, vector<int> > xrefs = xref(cin);
 
     for (map<string, vector<int> >::const_iterator it = xrefs.begin(); it != xrefs.end(); ++it)
     {
