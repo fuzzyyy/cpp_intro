@@ -17,6 +17,9 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 			$(LIBOBJ)/random.o $(LIBOBJ)/string_utils.o
 	g++ $^ -o $@
 
+7_1: $(OBJ)/7_1.o $(LIBOBJ)/strvect_utils.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 

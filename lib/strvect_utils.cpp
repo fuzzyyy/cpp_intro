@@ -9,8 +9,16 @@ using std::endl;
 
 void print_vect(const vector<string>& vec)
 {
-    for (vector<string>::const_iterator iter = vec.begin(); iter != vec.end(); iter++)
-    {
-        cout << *iter << endl;
+    if (vec.empty()) {
+        return;
     }
+
+    cout << vec[0];
+
+    for (vector<string>::const_iterator iter = vec.begin() + 1; iter != vec.end(); iter++)
+    {
+        cout << " " << *iter;
+    }
+
+    cout << endl;
 }
