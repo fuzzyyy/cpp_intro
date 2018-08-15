@@ -20,6 +20,10 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 7_1: $(OBJ)/7_1.o $(LIBOBJ)/strvect_utils.o
 	g++ $^ -o $@
 
+7_2: $(OBJ)/7_2.o $(LIBOBJ)/grade.o $(LIBOBJ)/average.o $(LIBOBJ)/median.o \
+	$(LIBOBJ)/Student_info.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 

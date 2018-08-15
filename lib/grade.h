@@ -16,4 +16,6 @@ double average_grade(const Student_info&);
 
 double optimistic_median_grade(const Student_info&);
 
+char letter_grade(double);
+
 #endif

@@ -65,3 +65,24 @@ double optimistic_median_grade(const Student_info& s)
         return grade(s.midterm, s.final, median(nonzero));
     }
 }
+
+char letter_grade(double grade)
+{
+    if (grade >= 90.0) {
+        return 'A';
+    }
+
+    if (grade >= 80.0) {
+        return 'B';
+    }
+
+    if (grade >= 70.0) {
+        return 'C';
+    }
+
+    if (grade >= 60.0) {
+        return 'D';
+    }
+
+    return 'F';
+}
