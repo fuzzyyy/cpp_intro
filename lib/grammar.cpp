@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include <map>
 #include <stdexcept>
 #include <string>
@@ -9,6 +10,7 @@
 #include "string_utils.h"
 
 using std::istream;
+using std::list;
 using std::logic_error;
 using std::map;
 using std::string;
@@ -53,9 +55,39 @@ void gen_aux(const Grammar& g, const string& word, vector<string>& ret)
     }
 }
 
+void gen_aux(const Grammar& g, const string& word, list<string>& ret)
+{
+    if (!bracketed(word)) {
+        ret.push_back(word);
+    }
+    else {
+        Grammar::const_iterator it = g.find(word);
+
+        if (it == g.end()) {
+            throw logic_error("empty rule");
+        }
+
+        const Rule_collection& c = it->second;
+        const Rule& r = c[nrand(c.size())];
+
+        for (Rule::const_iterator iter = r.begin(); iter != r.end(); ++iter)
+        {
+            gen_aux(g, *iter, ret);
+        }
+
+    }
+}
+
 vector<string> gen_sentence(const Grammar& g)
 {
     vector<string> ret;
+    gen_aux(g, "<sentence>", ret);
+    return ret;
+}
+
+list<string> gen_sentence_list(const Grammar& g)
+{
+    list<string> ret;
     gen_aux(g, "<sentence>", ret);
     return ret;
 }

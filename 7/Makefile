@@ -30,6 +30,9 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 7_4: $(OBJ)/7_4.o $(LIBOBJ)/xref.o $(LIBOBJ)/string_utils.o
 	g++ $^ -o $@
 
+7_5: $(OBJ)/7_5.o $(LIBOBJ)/grammar.o $(LIBOBJ)/random.o $(LIBOBJ)/string_utils.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 
