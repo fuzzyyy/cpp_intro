@@ -27,6 +27,9 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 7_3: $(OBJ)/7_3.o $(LIBOBJ)/xref.o $(LIBOBJ)/string_utils.o
 	g++ $^ -o $@
 
+7_4: $(OBJ)/7_4.o $(LIBOBJ)/xref.o $(LIBOBJ)/string_utils.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 
