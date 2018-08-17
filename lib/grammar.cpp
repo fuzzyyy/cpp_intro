@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <list>
 #include <map>
@@ -8,6 +9,9 @@
 #include "grammar.h"
 #include "random.h"
 #include "string_utils.h"
+
+#include "strvect_utils.h"
+using std::cout;
 
 using std::istream;
 using std::list;
@@ -90,4 +94,35 @@ list<string> gen_sentence_list(const Grammar& g)
     list<string> ret;
     gen_aux(g, "<sentence>", ret);
     return ret;
+}
+
+vector<string> gen_sentence_nonrecursive(const Grammar& g)
+{
+    vector<string> sentence;
+    vector<string> stack;
+
+    stack.push_back("<sentence>");
+    
+    while (!stack.empty())
+    {
+        string token = stack.back();
+        stack.pop_back();
+
+        if (!bracketed(token)) {
+            sentence.push_back(token);
+        } else {
+            Grammar::const_iterator iter = g.find(token);
+            
+            if (iter == g.end()) {
+                throw logic_error("empty rule");
+            }
+
+            Rule_collection coll = iter->second;
+            Rule rule = coll[nrand(coll.size())];
+
+            stack.insert(stack.end(), rule.rbegin(), rule.rend());
+        }
+    }
+
+    return sentence;
 }

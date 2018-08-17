@@ -14,4 +14,5 @@ typedef std::map<std::string, Rule_collection> Grammar;
 Grammar read_grammar(std::istream&);
 std::vector<std::string> gen_sentence(const Grammar&);
 std::list<std::string> gen_sentence_list(const Grammar&);
+std::vector<std::string> gen_sentence_nonrecursive(const Grammar&);
 #endif
