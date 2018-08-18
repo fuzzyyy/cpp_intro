@@ -1,0 +1,24 @@
+The tags used to produce links are the <a> and </a>.
+
+The <a> tells where the link should start and the </a> indicates where the link ends.
+
+Everything between these two will work as a link.
+
+The target of the link is added to the <a> tag using
+the href="http://www.whateverpage.com" setting.
+
+The example below shows how to make the word here work as a link to yahoo.
+
+Click <a href="http://www.yahoo.com">here</a> to go to yahoo.
+
+http://google.com http://altavista.com https://duckduckgo.com
+http://yahoo.com http://www.yahoo.com
+You simply:
+
+    Specify the target in the <a href=" ">.
+
+
+    Then add the text that should work as a link.
+
+
+    Finally add an </a> tag to indicate where the link ends.
