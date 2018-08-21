@@ -54,9 +54,16 @@ $(LIBOBJ)/%.o: $(LIB)/%.cpp
 #	g++ -c $(INCLUDE) $(CXXFLAGS) $^ -o $@
 
 clean:
-	rm $(OBJ)/*
-	rm $(LIBOBJ)/*
-	rm 6_0_grading
-	rm 6_0_strings
+	rm -f $(OBJ)/*
+	rm -f $(LIBOBJ)/*
+	rm -f 6_0_grading
+	rm -f 6_0_strings
+	rm -f 6_0_extractfails
+	rm -f 6_3
+	rm -f 6_4
+	rm -f 6_6
+	rm -f 6_7
+	rm -f 6_8
+	rm -f 6_9
 
 .PHONY: clean
