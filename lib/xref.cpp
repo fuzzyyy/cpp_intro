@@ -9,7 +9,7 @@ using std::string;
 using std::vector;
 
 map<string, vector<int> >
-    xref_old(istream& in, vector<string> (*find_words)(const string& s))
+xref_old(istream& in, vector<string> (*find_words)(const string& s))
 {
     string line;
     int lineNumber = 0;
@@ -21,7 +21,9 @@ map<string, vector<int> >
 
         vector<string> words = find_words(line);
 
-        for (vector<string>::const_iterator it = words.begin(); it != words.end(); ++it)
+        for (vector<string>::const_iterator it = words.begin();
+             it != words.end();
+             ++it)
         {
             ret[*it].push_back(lineNumber);
         }
@@ -30,8 +32,8 @@ map<string, vector<int> >
     return ret;
 }
 
-map<string, vector<int> >
-    xref(istream& in, vector<string> (*find_words)(const string& s))
+map<string, vector<int> > xref(istream& in,
+                               vector<string> (*find_words)(const string& s))
 {
     string line;
     int lineNumber = 0;
@@ -43,9 +45,12 @@ map<string, vector<int> >
 
         vector<string> words = find_words(line);
 
-        for (vector<string>::const_iterator it = words.begin(); it != words.end(); ++it)
+        for (vector<string>::const_iterator it = words.begin();
+             it != words.end();
+             ++it)
         {
-            if (ret[*it].empty() || ret[*it].back() != lineNumber) {
+            if (ret[*it].empty() || ret[*it].back() != lineNumber)
+            {
                 ret[*it].push_back(lineNumber);
             }
         }
