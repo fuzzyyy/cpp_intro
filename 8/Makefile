@@ -31,6 +31,10 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 8_4: $(OBJ)/8_4.o
 	g++ $^ -o $@
 
+8_5: $(OBJ)/8_5.o $(LIBOBJ)/strvect_utils.o $(LIBOBJ)/grammar.o \
+			$(LIBOBJ)/random.o $(LIBOBJ)/string_utils.o
+	g++ $^ -o $@
+
 $(OBJ)/%.o: %.cpp
 	g++ -c $(ARGS) $^ -o $@
 
