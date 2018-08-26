@@ -1,3 +1,6 @@
+#ifndef LIB_STRINGUTILS_H
+#define LIB_STRINGUTILS_H
+
 #include <algorithm>
 #include <cctype>
 #include <string>
@@ -30,3 +33,5 @@ void split(const std::string& str, T out)
         i = j;
     }
 }
+
+#endif
