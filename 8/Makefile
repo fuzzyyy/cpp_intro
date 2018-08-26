@@ -3,6 +3,7 @@ LIB = ../lib
 LIBOBJ = $(LIB)/obj
 
 CXXFLAGS = -g -Wextra -Wall --pedantic-errors -Wno-sign-compare -std=c++98
+CXXFLAGS_TEST = -g -Wextra -Wall --pedantic-errors -Wno-sign-compare -std=c++11 -lgtest
 INCLUDE = -I$(LIB)
 
 ARGS = $(CXXFLAGS) $(INCLUDE)
@@ -22,6 +23,12 @@ ARGS = $(CXXFLAGS) $(INCLUDE)
 
 8_1: $(OBJ)/8_1.o $(LIBOBJ)/compare_schemes.o $(LIBOBJ)/Student_info.o \
 			 $(LIBOBJ)/grade.o $(LIBOBJ)/median.o $(LIBOBJ)/average.o
+	g++ $^ -o $@
+
+8_2: 8_2.cpp
+	g++ $(CXXFLAGS_TEST) $(INCLUDE) $^ -o $@
+
+8_4: $(OBJ)/8_4.o
 	g++ $^ -o $@
 
 $(OBJ)/%.o: %.cpp
